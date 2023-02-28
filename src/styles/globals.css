@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #__next {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  #__next {
+    @apply grid;
+  }
+  main[data-has-footer="true"] {
+    @apply flex flex-col;
+  }
+  main[data-has-footer="true"] footer {
+    margin-top: auto;
+  }
+  body:has(.modal.modal-open) {
+    overflow: hidden;
+  }
+  table {
+    @apply table-auto w-full;
+  }
+  table :is(th, td) {
+    @apply py-2 px-4 whitespace-nowrap border;
+  }
+  body {
+    font-family: Lexend, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+      Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+      Segoe UI Symbol, Noto Color Emoji;
+  }
+  .input:focus {
+    outline: none !important;
+    @apply ring-2 ring-blue-600 ring-offset-2;
+  }
+}
+
+@layer components {
+  .tooltip {
+    background-color: #444;
+    color: white;
+    font-size: 90%;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: max-content;
+    max-width: calc(100vw - 10px);
+  }
+  .btn.loading {
+    @apply relative bg-gray-200 text-transparent;
+  }
+  .btn.loading:before {
+    @apply border-b-slate-700 border-b-slate-700 m-auto absolute inset-0 w-5 h-5;
+  }
+  .pl {
+    width: 6em;
+    height: 6em;
+  }
+
+  .pl__ring {
+    animation: ringA 2s linear infinite;
+  }
+
+  .pl__ring--a {
+    stroke: #f42f25;
+  }
+
+  .pl__ring--b {
+    animation-name: ringB;
+    stroke: #f49725;
+  }
+
+  .pl__ring--c {
+    animation-name: ringC;
+    stroke: #255ff4;
+  }
+
+  .pl__ring--d {
+    animation-name: ringD;
+    stroke: #f42582;
+  }
+
+  /* Animations */
+  @keyframes ringA {
+    from,
+    4% {
+      stroke-dasharray: 0 660;
+      stroke-width: 20;
+      stroke-dashoffset: -330;
+    }
+
+    12% {
+      stroke-dasharray: 60 600;
+      stroke-width: 30;
+      stroke-dashoffset: -335;
+    }
+
+    32% {
+      stroke-dasharray: 60 600;
+      stroke-width: 30;
+      stroke-dashoffset: -595;
+    }
+
+    40%,
+    54% {
+      stroke-dasharray: 0 660;
+      stroke-width: 20;
+      stroke-dashoffset: -660;
+    }
+
+    62% {
+      stroke-dasharray: 60 600;
+      stroke-width: 30;
+      stroke-dashoffset: -665;
+    }
+
+    82% {
+      stroke-dasharray: 60 600;
+      stroke-width: 30;
+      stroke-dashoffset: -925;
+    }
+
+    90%,
+    to {
+      stroke-dasharray: 0 660;
+      stroke-width: 20;
+      stroke-dashoffset: -990;
+    }
+  }
+
+  @keyframes ringB {
+    from,
+    12% {
+      stroke-dasharray: 0 220;
+      stroke-width: 20;
+      stroke-dashoffset: -110;
+    }
+
+    20% {
+      stroke-dasharray: 20 200;
+      stroke-width: 30;
+      stroke-dashoffset: -115;
+    }
+
+    40% {
+      stroke-dasharray: 20 200;
+      stroke-width: 30;
+      stroke-dashoffset: -195;
+    }
+
+    48%,
+    62% {
+      stroke-dasharray: 0 220;
+      stroke-width: 20;
+      stroke-dashoffset: -220;
+    }
+
+    70% {
+      stroke-dasharray: 20 200;
+      stroke-width: 30;
+      stroke-dashoffset: -225;
+    }
+
+    90% {
+      stroke-dasharray: 20 200;
+      stroke-width: 30;
+      stroke-dashoffset: -305;
+    }
+
+    98%,
+    to {
+      stroke-dasharray: 0 220;
+      stroke-width: 20;
+      stroke-dashoffset: -330;
+    }
+  }
+
+  @keyframes ringC {
+    from {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: 0;
+    }
+
+    8% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -5;
+    }
+
+    28% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -175;
+    }
+
+    36%,
+    58% {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: -220;
+    }
+
+    66% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -225;
+    }
+
+    86% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -395;
+    }
+
+    94%,
+    to {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: -440;
+    }
+  }
+
+  @keyframes ringD {
+    from,
+    8% {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: 0;
+    }
+
+    16% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -5;
+    }
+
+    36% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -175;
+    }
+
+    44%,
+    50% {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: -220;
+    }
+
+    58% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -225;
+    }
+
+    78% {
+      stroke-dasharray: 40 400;
+      stroke-width: 30;
+      stroke-dashoffset: -395;
+    }
+
+    86%,
+    to {
+      stroke-dasharray: 0 440;
+      stroke-width: 20;
+      stroke-dashoffset: -440;
+    }
+  }
+  .palette-1 {
+    background: linear-gradient(to right, #2e3192, #1bffff);
+  }
+
+  .palette-2 {
+    background: linear-gradient(to right, #d4145a, #fbb03b);
+  }
+
+  .palette-3 {
+    background: linear-gradient(to right, #009245, #fcee21);
+  }
+
+  .palette-4 {
+    background: linear-gradient(to right, #662d8c, #ed1e79);
+  }
+
+  .palette-5 {
+    background: linear-gradient(to right, #ee9ca7, #ffdde1);
+  }
+
+  .palette-6 {
+    background: linear-gradient(to right, #614385, #516395);
+  }
+
+  .palette-7 {
+    background: linear-gradient(to right, #02aabd, #00cdac);
+  }
+
+  .palette-8 {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+  }
+
+  .palette-9 {
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+  }
+
+  .palette-10 {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+  }
+
+  .palette-11 {
+    background: linear-gradient(to right, #c6ea8d, #fe90af);
+  }
+
+  .palette-12 {
+    background: linear-gradient(to right, #ea8d8d, #a890fe);
+  }
+
+  .palette-13 {
+    background: linear-gradient(to right, #d8b5ff, #1eae98);
+  }
+
+  .palette-14 {
+    background: linear-gradient(to right, #ff61d2, #fe9090);
+  }
+
+  .palette-15 {
+    background: linear-gradient(to right, #bff098, #6fd6ff);
+  }
+
+  .palette-16 {
+    background: linear-gradient(to right, #4e65ff, #92effd);
+  }
+
+  .palette-17 {
+    background: linear-gradient(to right, #a9f1df, #ffbbbb);
+  }
+
+  .palette-18 {
+    background: linear-gradient(to right, #c33764, #1d2671);
+  }
+
+  .palette-19 {
+    background: linear-gradient(to right, #93a5cf, #e4efe9);
+  }
+
+  .palette-20 {
+    background: linear-gradient(to right, #868f96, #596164);
+  }
+
+  .palette-21 {
+    background: linear-gradient(to right, #09203f, #537895);
+  }
+
+  .palette-22 {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+  }
+
+  .palette-23 {
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  }
+
+  .palette-24 {
+    background: linear-gradient(to right, #764ba2, #667eea);
+  }
+
+  .palette-25 {
+    background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+  }
+
+  .palette-26 {
+    background: linear-gradient(to bottom, #bc256a, #885bca);
+  }
+  .palette-27 {
+    background: linear-gradient(to right, #d7eb6d, #08a5ff);
+  }
+  .palette-28 {
+    background: linear-gradient(to right, #cf4dde, #a8a3e2);
+  }
+}
+
+.google-picker > :nth-child(1),
+.google-picker > :nth-child(2),
+.google-picker > :nth-child(4) > :last-child {
+  display: none !important;
+}
+.google-picker > :nth-child(3) {
+  width: 100% !important;
+  height: 140px;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}
