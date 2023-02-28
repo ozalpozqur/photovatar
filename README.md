@@ -65,5 +65,5 @@ You can see this web app [here](https://www.photovatar.com/).
 If you encounter any issues or have any questions about this web app, please open an issue on the GitHub repository.
 
 ## Credits
-This web app was created by [Özgür Özalp](https://twitter.com/ozqurozalp) using the Replicate's [Codeformer](https://replicate.com/sczhou/codeformer) and [Modnet](https://replicate.com/pollinations/modnet) API.
+This web app was created by [Özgür Özalp](https://twitter.com/ozqurozalp) using the [Codeformer](https://replicate.com/sczhou/codeformer) and [Modnet](https://replicate.com/pollinations/modnet) API.
 
